@@ -10,7 +10,11 @@ A simple context menu option for compressing `.mp4` videos using FFmpeg.
 
 Now, you can right-click on any `.mp4` file and choose "Compress Video" to compress the file.
 
-## License
-This project is open-source. Feel free to use, modify, and distribute.
+ps. you can change the compression rate by changing the `CompressVideo.bat`
+
+>**example:** Compress the video with 1500k bitrate
+```shell
+ffmpeg.exe -i "!INPUT!" -b:v 1500k "!OUTPUT!"
+```
 
 ![video compressor](./res/imgs/VideoCompressor.png)
