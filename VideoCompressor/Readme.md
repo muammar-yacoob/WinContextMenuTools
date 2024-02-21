@@ -13,4 +13,4 @@ Now, you can right-click on any `.mp4` file and choose "Compress Video" to compr
 ## License
 This project is open-source. Feel free to use, modify, and distribute.
 
-![f]("VideoCompressor.png")
+![video compressor](./res/imgs/VideoCompressor.png)
