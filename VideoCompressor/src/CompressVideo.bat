@@ -10,6 +10,6 @@ set "OUTPUT=%~dpn1_compressed.mp4"
 :: if exist "!OUTPUT!" del "!OUTPUT!"
 
 :: Compress the video with 500k bitrate
-ffmpeg.exe -i "!INPUT!" -b:v 1500k "!OUTPUT!"
+ffmpeg.exe -i "!INPUT!" -b:v 500k "!OUTPUT!"
 
 pause
