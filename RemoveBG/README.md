@@ -1,22 +1,24 @@
 # Remove Background for Windows
 
-A simple context menu option for removing backgrounds from `.png` files using the **remove.bg** CLI.
+Adds a context menu option to remove backgrounds from PNG files using the remove.bg CLI.
 
-## Installation
+## Quick Start
 
-1. Download and extract the **remove.bg** CLI from [Remove.bg CLI GitHub](https://github.com/remove-bg).
-   
-2. Place all the extracted files (including `apikey.txt`, `removebg_batch.bat`, and `install.reg`) into the `D:\\WinContextMenu\\RemoveBG\\src` folder.
+1. Download and extract this project.
+2. Create `src/apikey.txt` and add your remove.bg API key.
+3. Run `install_removebg.bat` as administrator.
 
-3. Add your remove.bg API key to the `apikey.txt` file inside `D:\\WinContextMenu\\RemoveBG\\src`.
+## Usage
 
-4. Run `install_removebg.bat` as Administrator. This will:
-    - Install the **removebg** CLI.
-    - Set up the context menu option for `.png` files to remove the background.
+Right-click any PNG file > Select "Remove Background"
 
-Now, you can right-click on any `.png` file and choose **Remove Background**.
+## Requirements
 
-## License
-This project is open-source. Feel free to use, modify, and distribute.
+- Windows 10 or later
+- remove.bg API key
 
-![Remove Background](./res/imgs/menu.png)
+## Troubleshooting
+
+Check the PowerShell window for error messages.
+
+![Context Menu](./res/imgs/menu.png)
