@@ -17,6 +17,6 @@ This project is open-source. Feel free to use, modify, and distribute.
 
 ## 🌱 Support & Contributions
 If these tools save you time:
-- Please⭐ [Star](../../../stargazers) to help spread useful tools.
-- [Buy me a coffee](https://buymeacoffee.com/spark88) to fuel more dev tools.
-- or [Contribute](../../../fork) - Released under MIT license.
+- Please⭐ <a href="../../../stargazers" target="_blank">Star</a> to help spread useful tools.
+- <a href="https://buymeacoffee.com/spark88" target="_blank">Buy me a coffee</a> to fuel more dev tools.
+- or <a href="../../../fork" target="_blank">Contribute</a> - Released under MIT license.
