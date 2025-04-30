@@ -22,3 +22,9 @@ Right-click any PNG file > Select "Remove Background"
 Check the PowerShell window for error messages.
 
 ![Context Menu](./res/imgs/menu.png)
+
+## 🌱 Support & Contributions
+If these tools save you time:
+- Please⭐ [Star](../../../stargazers) to help spread useful tools.
+- [Buy me a coffee](https://buymeacoffee.com/spark88) to fuel more dev tools.
+- or [Contribute](../../../fork) - Released under MIT license.

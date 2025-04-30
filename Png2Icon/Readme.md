@@ -14,3 +14,9 @@ Now, you can right-click on any `.png` file and choose `convert to icon`
 This project is open-source. Feel free to use, modify, and distribute.
 
 ![video compressor](./res/imgs/menu.png)
+
+## 🌱 Support & Contributions
+If these tools save you time:
+- Please⭐ [Star](../../../stargazers) to help spread useful tools.
+- [Buy me a coffee](https://buymeacoffee.com/spark88) to fuel more dev tools.
+- or [Contribute](../../../fork) - Released under MIT license.

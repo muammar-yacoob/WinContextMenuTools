@@ -18,3 +18,9 @@ ffmpeg.exe -i "!INPUT!" -b:v 1500k "!OUTPUT!"
 ```
 
 ![video compressor](./res/imgs/VideoCompressor.png)
+
+## 🌱 Support & Contributions
+If these tools save you time:
+- Please⭐ [Star](../../../stargazers) to help spread useful tools.
+- [Buy me a coffee](https://buymeacoffee.com/spark88) to fuel more dev tools.
+- or [Contribute](../../../fork) - Released under MIT license.

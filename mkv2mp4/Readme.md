@@ -17,3 +17,11 @@ ffmpeg.exe -i "!INPUT!" -c:v copy -c:a copy "!OUTPUT!"
 ```
 
 ![mkv2mp4 converter](./res/imgs/ContextMenu.png)
+
+---
+
+## 🌱 Support & Contributions
+If these tools save you time:
+- Please⭐ [Star](../../../stargazers) to help spread useful tools.
+- [Buy me a coffee](https://buymeacoffee.com/spark88) to fuel more dev tools.
+- or [Contribute](../../../fork) - Released under MIT license.
