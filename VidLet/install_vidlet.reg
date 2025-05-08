@@ -1,0 +1,39 @@
+Windows Registry Editor Version 5.00
+
+; MP4 File Context Menu
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\Shell\VidLet]
+@="VidLet"
+"Icon"="%ProgramFiles%\\MedLet\\res\\icons\\vidlet.ico"
+"SubCommands"=""
+"MUIVerb"="VidLet"
+
+; Video Compression option
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\Shell\VidLet\shell\CompressVideo]
+@="Compress Video"
+"Icon"="%ProgramFiles%\\MedLet\\res\\icons\\compress.ico"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\Shell\VidLet\shell\CompressVideo\command]
+@="cmd.exe /c \"%ProgramFiles%\\MedLet\\VidLet\\src\\compress.bat \"%1\"\""
+
+; MKV File Context Menu
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\Shell\VidLet]
+@="VidLet"
+"Icon"="%ProgramFiles%\\MedLet\\res\\icons\\vidlet.ico"
+"SubCommands"=""
+"MUIVerb"="VidLet"
+
+; Convert to MP4 option
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\Shell\VidLet\shell\ConvertToMP4]
+@="Convert to MP4"
+"Icon"="%ProgramFiles%\\MedLet\\res\\icons\\convert.ico"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\Shell\VidLet\shell\ConvertToMP4\command]
+@="cmd.exe /c \"%ProgramFiles%\\MedLet\\VidLet\\src\\mkv2mp4\\ConvertToMP4.bat \"%1\"\""
+
+; MP4 Format for MKV Files
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\Shell\VidLet\shell\CompressVideo]
+@="Compress Video"
+"Icon"="%ProgramFiles%\\MedLet\\res\\icons\\compress.ico"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\Shell\VidLet\shell\CompressVideo\command]
+@="cmd.exe /c \"%ProgramFiles%\\MedLet\\VidLet\\src\\compress.bat \"%1\"\"" 

@@ -1,9 +1,0 @@
-Windows Registry Editor Version 5.00
-
-; For .mkv files only
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\ConvertToMP4]
-@="Convert to MP4"
-"Icon"="D:\\WinContextMenu\\mkv2mp4\\src\\convert.ico"
-
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.mkv\shell\ConvertToMP4\command]
-@="\"D:\\WinContextMenu\\mkv2mp4\\src\\CompressVideo.bat\" \"%1\""

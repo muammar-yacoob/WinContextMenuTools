@@ -1,7 +1,7 @@
-# Privacy Policy
+# Privacy Policy for MedLet
 
 ## Data Collection
-Our context menu tools are designed with privacy in mind:
+MedLet tools are designed with privacy as fundamental principle:
 - We only process files you explicitly select
 - All processing happens locally on your machine
 - No data is transmitted to external servers
@@ -16,8 +16,13 @@ Our context menu tools are designed with privacy in mind:
 ## Data Security
 - Your files never leave your device
 - No data persistence between operations
-- No external services are used
+- No external services are used 
 - No internet connection required for core functionality
+
+## Tools and Components
+This privacy policy applies to all MedLet components:
+- Piclet (image processing tools)
+- VidLet (video processing tools)
 
 ## Contact
 For questions about privacy or the tools, please open an issue on GitHub.
