@@ -3,8 +3,6 @@ Windows Registry Editor Version 5.00
 ; MP4 File Context Menu
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\Shell\VidLet]
 @="VidLet"
-"Icon"="%ProgramFiles%\\MedLet\\res\\icons\\vidlet.ico"
-"SubCommands"=""
 "MUIVerb"="VidLet"
 
 ; Video Compression option
