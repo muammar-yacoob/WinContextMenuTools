@@ -26,32 +26,29 @@ if not exist "%piclet_dir%\src" mkdir "%piclet_dir%\src"
 if not exist "%piclet_dir%\src\icons" mkdir "%piclet_dir%\src\icons"
 if not exist "%libs_dir%" mkdir "%libs_dir%"
 
-:: Copy files to installation directory
+:: Copy only the resize.bat file and resize_dialog.html which are still needed
 echo Copying files to %INSTALL_DIR%...
-xcopy /y /i "%current_dir%src\*.bat" "%piclet_dir%\src\"
-xcopy /y /i "%current_dir%src\*.html" "%piclet_dir%\src\"
-xcopy /y /i "%current_dir%installation\*.reg" "%piclet_dir%\"
+if exist "%current_dir%src\resize.bat" (
+    echo Copying resize.bat...
+    copy "%current_dir%src\resize.bat" "%piclet_dir%\src\"
+)
+if exist "%current_dir%src\resize_dialog.html" (
+    echo Copying resize_dialog.html...
+    copy "%current_dir%src\resize_dialog.html" "%piclet_dir%\src\"
+)
 
-:: Check if we need to extract ImageMagick components
-if not exist "%libs_dir%\magick.exe" (
-    echo Checking for ImageMagick executable...
-    
-    :: Try to locate installed ImageMagick
-    if exist "%ProgramFiles%\ImageMagick-7.1.1-Q16-HDRI\magick.exe" (
-        echo Found ImageMagick installation, copying necessary files...
-        copy "%ProgramFiles%\ImageMagick-7.1.1-Q16-HDRI\magick.exe" "%libs_dir%\"
-    ) else if exist "%current_dir%libs\magick.exe" (
-        echo Found local ImageMagick executable, copying to installation...
-        copy "%current_dir%libs\magick.exe" "%libs_dir%\"
-    ) else (
-        echo ImageMagick not found. Please download portable ImageMagick and extract to:
-        echo %libs_dir%
-        echo.
-        choice /c YN /m "Open ImageMagick download page now?"
-        if %errorlevel% equ 1 start https://imagemagick.org/script/download.php
-        pause
-        exit /b 1
-    )
+:: Verify ImageMagick exists
+if not exist "%ProgramFiles%\ImageMagick-7.1.1-Q16-HDRI\magick.exe" (
+    echo WARNING: ImageMagick not found at: "%ProgramFiles%\ImageMagick-7.1.1-Q16-HDRI\magick.exe"
+    echo.
+    echo Please download and install ImageMagick from:
+    echo https://imagemagick.org/script/download.php
+    echo.
+    choice /c YN /m "Open ImageMagick download page now?"
+    if %errorlevel% equ 1 start https://imagemagick.org/script/download.php
+    echo.
+    echo Press any key to continue installation anyway...
+    pause > nul
 )
 
 :: Copy icons to the Piclet src icons folder
@@ -90,7 +87,6 @@ echo You can now right-click on:
 echo  - PNG files: Convert to Icon, Remove Background, or Resize
 echo  - JPG files: Resize
 echo.
-echo If the context menu doesn't appear, right-click on a PNG file and select "Piclet Diagnostic"
-echo to run the diagnostic tool.
+echo All operations except Resize will directly use ImageMagick without batch files.
 pause
 endlocal 

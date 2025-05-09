@@ -1,41 +1,55 @@
 Windows Registry Editor Version 5.00
 
-; PNG File Context Menu - Convert to Icon
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletConvertToIcon]
+; Create Piclet submenu for PNG files
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet]
+@="Piclet"
+"Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\piclet.ico"
+"MUIVerb"="Piclet"
+"SubCommands"=""
+
+; PNG Convert to Icon - Direct ImageMagick call
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\ConvertToIcon]
 @="Convert to Icon"
 "Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\png2icon.ico"
 
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletConvertToIcon\command]
-@="cmd.exe /c \"%ProgramFiles%\\MedLet\\Piclet\\src\\converttopng.bat\" \"%1\""
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\ConvertToIcon\command]
+@="\"%ProgramFiles%\\ImageMagick-7.1.1-Q16-HDRI\\magick.exe\" convert \"%1\" -define icon:auto-resize=256,128,64,48,32,16 \"%~dpn1.ico\""
 
-; PNG File Context Menu - Remove Background
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletRemoveBackground]
+; PNG Remove Background - Direct ImageMagick call
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\RemoveBackground]
 @="Remove Background"
 "Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\removebg.ico"
 
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletRemoveBackground\command]
-@="cmd.exe /c \"%ProgramFiles%\\MedLet\\Piclet\\src\\removebg.bat\" \"%1\""
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\RemoveBackground\command]
+@="\"%ProgramFiles%\\ImageMagick-7.1.1-Q16-HDRI\\magick.exe\" convert \"%1\" -transparent white \"%~dpn1_nobg%~x1\""
 
-; PNG File Context Menu - Resize Image
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletResizeImage]
+; PNG Resize Image - Needs batch file for the UI dialog
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\ResizeImage]
 @="Resize Image"
 "Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\resize.ico"
 
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletResizeImage\command]
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\ResizeImage\command]
 @="cmd.exe /c \"%ProgramFiles%\\MedLet\\Piclet\\src\\resize.bat\" \"%1\""
 
-; JPG File Context Menu - Resize Image
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\PicletResizeImage]
+; Create Piclet submenu for JPG files
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\Piclet]
+@="Piclet"
+"Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\piclet.ico"
+"MUIVerb"="Piclet"
+"SubCommands"=""
+
+; JPG Resize Image - Needs batch file for the UI dialog
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\Piclet\Shell\ResizeImage]
 @="Resize Image"
 "Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\resize.ico"
 
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\PicletResizeImage\command]
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\Piclet\Shell\ResizeImage\command]
 @="cmd.exe /c \"%ProgramFiles%\\MedLet\\Piclet\\src\\resize.bat\" \"%1\""
 
-; PNG File Context Menu - Test Command (for diagnostics)
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletTestCommand]
-@="Piclet Diagnostic"
+; Diagnostic command (for troubleshooting)
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\Diagnostic]
+@="Run Diagnostic"
 "Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\resize.ico"
 
-[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletTestCommand\command]
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\Piclet\Shell\Diagnostic\command]
 @="cmd.exe /k \"%ProgramFiles%\\MedLet\\Piclet\\src\\test_command.bat\" \"%1\"" 
