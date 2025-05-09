@@ -29,6 +29,7 @@ if not exist "%libs_dir%" mkdir "%libs_dir%"
 :: Copy files to installation directory
 echo Copying files to %INSTALL_DIR%...
 xcopy /y /i "%current_dir%src\*.bat" "%piclet_dir%\src\"
+xcopy /y /i "%current_dir%src\*.html" "%piclet_dir%\src\"
 xcopy /y /i "%current_dir%installation\*.reg" "%piclet_dir%\"
 
 :: Check if we need to extract ImageMagick components
@@ -77,6 +78,11 @@ if %errorlevel% neq 0 (
     exit /b 1
 )
 
+:: Restart Windows Explorer to refresh context menus
+echo Refreshing Windows Explorer to apply changes...
+taskkill /f /im explorer.exe >nul 2>&1
+start explorer.exe
+
 echo.
 echo Piclet has been successfully installed to %INSTALL_DIR%!
 echo.
@@ -84,6 +90,7 @@ echo You can now right-click on:
 echo  - PNG files: Convert to Icon, Remove Background, or Resize
 echo  - JPG files: Resize
 echo.
-echo You may need to restart Windows Explorer for changes to take effect.
+echo If the context menu doesn't appear, right-click on a PNG file and select "Piclet Diagnostic"
+echo to run the diagnostic tool.
 pause
 endlocal 

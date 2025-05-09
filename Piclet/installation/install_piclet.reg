@@ -30,4 +30,12 @@ Windows Registry Editor Version 5.00
 "Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\resize.ico"
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\PicletResizeImage\command]
-@="cmd.exe /c \"%ProgramFiles%\\MedLet\\Piclet\\src\\resize.bat\" \"%1\"" 
+@="cmd.exe /c \"%ProgramFiles%\\MedLet\\Piclet\\src\\resize.bat\" \"%1\""
+
+; PNG File Context Menu - Test Command (for diagnostics)
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletTestCommand]
+@="Piclet Diagnostic"
+"Icon"="%ProgramFiles%\\MedLet\\Piclet\\src\\icons\\resize.ico"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletTestCommand\command]
+@="cmd.exe /k \"%ProgramFiles%\\MedLet\\Piclet\\src\\test_command.bat\" \"%1\"" 
