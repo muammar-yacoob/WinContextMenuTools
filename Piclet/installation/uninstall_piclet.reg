@@ -1,0 +1,9 @@
+Windows Registry Editor Version 5.00
+
+; Remove PNG context menu entries
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletConvertToIcon]
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletRemoveBackground]
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletResizeImage]
+
+; Remove JPG context menu entries
+[-HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\PicletResizeImage] 

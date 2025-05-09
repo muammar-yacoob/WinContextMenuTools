@@ -23,11 +23,10 @@ echo.
 
 :: Registry keys to remove
 echo Removing Piclet entries...
-reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletMenu" /f >nul 2>&1
-reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\ConvertToIcon" /f >nul 2>&1
-reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\RemoveBackground" /f >nul 2>&1
-reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\PicletMenu" /f >nul 2>&1
-reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.jpeg\Shell\PicletMenu" /f >nul 2>&1
+reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletConvertToIcon" /f >nul 2>&1
+reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletRemoveBackground" /f >nul 2>&1
+reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.png\Shell\PicletResizeImage" /f >nul 2>&1
+reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.jpg\Shell\PicletResizeImage" /f >nul 2>&1
 
 echo Removing VidLet entries...
 reg delete "HKEY_CLASSES_ROOT\SystemFileAssociations\.mp4\shell\CompressVideo" /f >nul 2>&1

@@ -17,19 +17,19 @@ set "INSTALL_DIR=%ProgramFiles%\MedLet"
 set "current_dir=%~dp0"
 set "piclet_dir=%INSTALL_DIR%\Piclet"
 set "libs_dir=%INSTALL_DIR%\libs"
-set "icons_dir=%INSTALL_DIR%\res\icons"
+set "icons_dir=%piclet_dir%\src\icons"
 
 :: Create directories if needed
 if not exist "%INSTALL_DIR%" mkdir "%INSTALL_DIR%"
 if not exist "%piclet_dir%" mkdir "%piclet_dir%"
 if not exist "%piclet_dir%\src" mkdir "%piclet_dir%\src"
+if not exist "%piclet_dir%\src\icons" mkdir "%piclet_dir%\src\icons"
 if not exist "%libs_dir%" mkdir "%libs_dir%"
-if not exist "%icons_dir%" mkdir "%icons_dir%"
 
 :: Copy files to installation directory
 echo Copying files to %INSTALL_DIR%...
 xcopy /y /i "%current_dir%src\*.bat" "%piclet_dir%\src\"
-xcopy /y /i "%current_dir%install_piclet.reg" "%piclet_dir%\"
+xcopy /y /i "%current_dir%installation\*.reg" "%piclet_dir%\"
 
 :: Check if we need to extract ImageMagick components
 if not exist "%libs_dir%\magick.exe" (
@@ -53,40 +53,29 @@ if not exist "%libs_dir%\magick.exe" (
     )
 )
 
-:: Copy icons to the central location
-if exist "%current_dir%src\icon.ico" (
-    copy "%current_dir%src\icon.ico" "%icons_dir%\"
+:: Copy icons to the Piclet src icons folder
+echo Copying icons...
+if exist "%current_dir%src\icons\piclet.ico" (
+    copy "%current_dir%src\icons\piclet.ico" "%icons_dir%\"
 )
-if exist "%current_dir%src\removebg.ico" (
-    copy "%current_dir%src\removebg.ico" "%icons_dir%\"
+if exist "%current_dir%src\icons\removebg.ico" (
+    copy "%current_dir%src\icons\removebg.ico" "%icons_dir%\"
 )
-if exist "%current_dir%src\resize.ico" (
-    copy "%current_dir%src\resize.ico" "%icons_dir%\"
+if exist "%current_dir%src\icons\resize.ico" (
+    copy "%current_dir%src\icons\resize.ico" "%icons_dir%\"
 )
-if exist "%current_dir%src\piclet.ico" (
-    copy "%current_dir%src\piclet.ico" "%icons_dir%\"
+if exist "%current_dir%src\icons\png2icon.ico" (
+    copy "%current_dir%src\icons\png2icon.ico" "%icons_dir%\"
 )
 
-:: Create temporary registry file with proper paths
-echo Creating registry entries...
-set "temp_reg=%TEMP%\piclet_install.reg"
-type "%current_dir%install_piclet.reg" > "%temp_reg%"
-
-:: Replace hardcoded paths with actual path
-set "escaped_path=%INSTALL_DIR:\=\\%"
-powershell -Command "(Get-Content '%temp_reg%') -replace 'D:\\\\WinContextMenu', '%escaped_path%' | Set-Content '%temp_reg%'"
-
-:: Import the registry file
+:: Import the registry file directly
 echo Installing context menu integration...
-reg import "%temp_reg%"
+reg import "%current_dir%installation\install_piclet.reg"
 if %errorlevel% neq 0 (
     echo Error: Failed to import registry entries.
     pause
     exit /b 1
 )
-
-:: Clean up temporary file
-del "%temp_reg%" 2>nul
 
 echo.
 echo Piclet has been successfully installed to %INSTALL_DIR%!

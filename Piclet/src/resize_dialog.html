@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Resize Image</title>
+<hta:application id="oHTA" 
+                applicationname="Resize Image" 
+                border="dialog" 
+                borderstyle="normal" 
+                caption="yes" 
+                contextmenu="no" 
+                maximizebutton="no" 
+                minimizebutton="yes" 
+                navigable="no" 
+                scroll="no" 
+                selection="no" 
+                showintaskbar="yes" 
+                singleinstance="yes" 
+                sysmenu="yes" 
+                version="1.0" 
+                windowstate="normal"/>
+<style>
+  body { font-family: Arial; padding: 15px; }
+  .container { width: 300px; }
+  .input-group { margin-bottom: 10px; }
+  label { display: block; margin-bottom: 3px; }
+  input[type="text"] { width: 60px; }
+  .note { font-size: 11px; color: #666; margin-top: 2px; }
+  .slider-container { margin: 10px 0; }
+  .slider-value { display: inline-block; margin-left: 10px; width: 40px; }
+  .buttons { margin-top: 15px; text-align: right; }
+  button { padding: 5px 10px; margin-left: 5px; }
+  .preview { font-size: 12px; margin-top: 10px; color: #555; }
+</style>
+</head>
+<body onload="window.resizeTo(330, 250);window.moveTo((screen.width-330)/2,(screen.height-250)/2);">
+<div class="container">
+  <div class="input-group">
+    <label for="width">Width:</label>
+    <input type="text" id="width" value="PLACEHOLDER_WIDTH" onchange="updatePreview()" />
+    <span class="note">Enter 0 to maintain aspect ratio</span>
+  </div>
+  <div class="input-group">
+    <label for="height">Height:</label>
+    <input type="text" id="height" value="PLACEHOLDER_HEIGHT" onchange="updatePreview()" />
+    <span class="note">Enter 0 to maintain aspect ratio</span>
+  </div>
+  <div class="input-group">
+    <label>Quality: <span id="quality-value">PLACEHOLDER_QUALITY%</span></label>
+    <input type="range" id="quality" min="10" max="100" value="PLACEHOLDER_QUALITY" oninput="updateQuality()" style="width: 100%" />
+    <span class="note">10% (lossy) to 100% (lossless)</span>
+  </div>
+  <div class="preview" id="preview">Output: PLACEHOLDER_FILENAME</div>
+  <div class="buttons">
+    <button onclick="window.close()">Cancel</button>
+    <button onclick="doResize()">Resize</button>
+  </div>
+</div>
+<script>
+function updateQuality() {
+    document.getElementById('quality-value').innerText = document.getElementById('quality').value + '%';
+}
+
+function updatePreview() {
+    var width = document.getElementById('width').value || '0';
+    var height = document.getElementById('height').value || '0';
+    document.getElementById('preview').innerText = 'Output: PLACEHOLDER_BASENAME_' + width + 'x' + height + 'PLACEHOLDER_EXTENSION';
+}
+
+function doResize() {
+    var fso = new ActiveXObject("Scripting.FileSystemObject");
+    var width = document.getElementById('width').value;
+    var height = document.getElementById('height').value;
+    var quality = document.getElementById('quality').value;
+    var file = fso.CreateTextFile("PLACEHOLDER_RESULT_PATH", true);
+    file.WriteLine(width + "|" + height + "|" + quality);
+    file.Close();
+    window.close();
+}
+</script>
+</body>
+</html> 
